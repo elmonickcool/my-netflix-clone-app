@@ -5,12 +5,12 @@ const Row = ({ title, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-  axios.get(fetchUrl).then((response) => {
-    const sortedMovies = response.data.results.sort((a, b) => a.id - b.id);
-    setMovies(sortedMovies);
-  });
-}, [fetchUrl]);
-
+    axios.get(fetchUrl).then((response) => {
+      // shuffle the array of movies
+      const shuffledMovies = response.data.results.sort(() => Math.random() - 0.5);
+      setMovies(shuffledMovies);
+    });
+  }, [fetchUrl]);
 
   return (
     <>
@@ -18,7 +18,6 @@ const Row = ({ title, fetchUrl }) => {
       <div className='flex flex-col md:flex-row justify-center items-center'>
         <div>
           {movies.map((item, id) => {
-            const title = item.media_type === 'tv' ? item.name : item.title;
             return (
               <div
                 className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2'
@@ -26,10 +25,10 @@ const Row = ({ title, fetchUrl }) => {
               >
                 <img
                   src={`https://image.tmdb.org/t/p/w500${item?.backdrop_path}`}
-                  alt={title}
+                  alt={item?.title}
                 />
                 <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white'>
-                  <p>{title}</p>
+                  <p className='white-space-normal text-base md:text-sm font-bold flex justify-center items-center h-full text-center'>{item?.name || item?.title}</p>
                 </div>
               </div>
             );
