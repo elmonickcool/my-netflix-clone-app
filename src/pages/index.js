@@ -9,6 +9,7 @@ export default function Home() {
       <Row title='Trending' fetchUrl={Request.requestTrendingMovie} />
       <Row title='Top Rated' fetchUrl={Request.requestTopRatedMovie} />
       <Row title='Popular Movie' fetchUrl={Request.requestPopularMovie} />
+      <Row title='Upcoming Movie' fetchUrl={Request.requestUpcomingMovie} />
     </>
   )
 }
