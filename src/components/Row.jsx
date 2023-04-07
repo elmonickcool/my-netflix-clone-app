@@ -5,10 +5,12 @@ const Row = ({ title, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    axios.get(fetchUrl).then((response) => {
-      setMovies(response.data.results);
-    });
-  }, [fetchUrl]);
+  axios.get(fetchUrl).then((response) => {
+    const sortedMovies = response.data.results.sort((a, b) => a.id - b.id);
+    setMovies(sortedMovies);
+  });
+}, [fetchUrl]);
+
 
   return (
     <>
