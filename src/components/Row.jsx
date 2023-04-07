@@ -10,7 +10,7 @@ const Row = ({ title, fetchUrl }) => {
     });
   }, [fetchUrl]);
 
-  console.log(movies);
+//   console.log(movies);
 
   return (
     <>
