@@ -29,8 +29,8 @@ const Main = () => {
                         {randomMovie?.media_type === "movie" ? randomMovie?.title : randomMovie?.name}
                     </h1>
                     <div>
-                        <button className="border bg-gray-300 text-black border-gray-300 py-2 px-5">Play</button>
-                        <button className="border text-white border-gray-300 py-2 px-5 ml-4">More Info</button>
+                        <button className="border bg-gray-300 text-black border-gray-300 py-2 px-5 rounded-md">Play</button>
+                        <button className="border text-white border-gray-300 py-2 px-5 ml-4 rounded-md">More Info</button>
                     </div>
                     <p className="w-full md:max-w-[70%] text-gray-200 lg:max-w-[50%] xl:max-w-[35%] mt-4">
                         {randomMovie?.overview ? truncateString(randomMovie?.overview, 255) : ""}
