@@ -16,7 +16,7 @@ const Row = ({ title, fetchUrl }) => {
     <>
       <h3 className='text-white font-bold md:text-xl p4'>{title}</h3>
       <div className='flex flex-col md:flex-row justify-center items-center'>
-        <div>
+        <div id={'slider'} className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
           {movies.map((item, id) => {
             return (
               <div
