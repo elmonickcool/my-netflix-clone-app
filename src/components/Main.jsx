@@ -10,7 +10,6 @@ const Main = () => {
             setMovies(response.data.results);
         });
     }, []);
-
     const randomMovie = movies.length && movies[Math.floor(Math.random() * movies.length)];
 
 

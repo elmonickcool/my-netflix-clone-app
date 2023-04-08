@@ -33,7 +33,7 @@ const Row = ({ title, fetchUrl }) => {
 
   return (
     <>
-      <h3 className='text-white font-bold md:text-xl p4'>{title}</h3>
+      <h3 className='text-white text-lg font-bold md:text-xl p-4 mt-3'>{title}</h3>
       <div className='flex flex-col md:flex-row justify-center items-center'>
         <div
           id='slider'
@@ -43,7 +43,7 @@ const Row = ({ title, fetchUrl }) => {
           {movies.map((item, id) => {
             return (
               <div
-                className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2'
+                className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px]  inline-block cursor-pointer relative p-2'
                 key={id}
               >
                 <img
