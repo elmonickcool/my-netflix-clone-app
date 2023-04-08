@@ -4,9 +4,23 @@ import Link from 'next/link'
 const Navbar = () => {
   return (
     <div className='flex items-center justify-between p-4 z-[100] w-full absolute'>
-      <Link href='/'>
-        <h1 className='text-red-600 text-4xl font-bold cursor-pointer'>Netflix</h1>
-      </Link>
+      <div className='flex items-center'>
+        <Link href='/'>
+          <h1 className='text-red-600 text-4xl font-bold cursor-pointer mr-4'>Netflix</h1>
+        </Link>
+        <Link href='/home'>
+          <h1 className='text-white pr-4 ms-5'>Home</h1>
+        </Link>
+        <Link href='/movie'>
+          <h1 className='text-white pr-4 ms-5'>Movie</h1>
+        </Link>
+        <Link href='/tvshow'>
+          <h1 className='text-white pr-4 ms-5'>TV Show</h1>
+        </Link>
+        <Link href='/new&popular'>
+          <h1 className='text-white pr-4 ms-5'>New & Popular</h1>
+        </Link>
+      </div>
       <div>
         <Link href='/signin'>
           <button className='text-white pr-4'>Sign in</button>
