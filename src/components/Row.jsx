@@ -2,32 +2,42 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {MdChevronLeft, MdChevronRight} from 'react-icons/md';
 
-const Row = ({ title, fetchUrl }) => {
+const Row = ({ title, fetchUrl, rowID }) => {
+  console.log(rowID);
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     axios.get(fetchUrl).then((response) => {
-      // shuffle the array of movies
+      
       const shuffledMovies = response.data.results.sort(() => Math.random() - 0.5);
       setMovies(shuffledMovies);
     });
   }, [fetchUrl]);
 
   const slideLeft = () =>{
-    var slider = document.getElementById('slider');
-    slider.scrollLeft = slider.scrollLeft-500;
+    var slider = document.getElementById('slider'+rowID);
+    console.log("slider element: ", slider);
+    if (slider) {
+      slider.scrollLeft = slider.scrollLeft-500;
+    }
+    
+
   }
   const slideRight = () =>{
-    var slider = document.getElementById('slider');
-    slider.scrollLeft = slider.scrollLeft+500;
+    var slider = document.getElementById('slider'+rowID);
+    console.log("slider element: ", slider);
+    if (slider) {
+      slider.scrollLeft = slider.scrollLeft+500;
+    }
   }
+ 
 
   return (
     <>
-      <h3 className='text-white font-bold md:text-xl p4'>{title}</h3>
+      <h3 className='text-white font-bold md:text-xl p-4'>{title}</h3>
       <div className='flex flex-col md:flex-row justify-center items-center group'>
-        <MdChevronLeft size={40} onClick={slideLeft} className='bg-white left-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' />
-        <div id={'slider'} className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
+        <MdChevronLeft size={40} onClick={slideLeft} className='bg-white left-0 rounded-full absolute opacity-50 hover:opacity-100  z-10 hidden group-hover:block' />
+        <div id={`slider${rowID}`} className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
           {movies.map((item, id) => {
             return (
               <div

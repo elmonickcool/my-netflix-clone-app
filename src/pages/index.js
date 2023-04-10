@@ -6,10 +6,10 @@ export default function Home() {
   return (
     <>
       <Main />
-      <Row title='Trending' fetchUrl={Request.requestTrendingMovie} />
-      <Row title='Top Rated' fetchUrl={Request.requestTopRatedMovie} />
-      <Row title='Popular Movie' fetchUrl={Request.requestPopularMovie} />
-      <Row title='Upcoming Movie' fetchUrl={Request.requestUpcomingMovie} />
+      <Row title='Trending' rowID={1} fetchUrl={Request.requestTrendingMovie}/>
+        <Row title='Top Rated'rowID={2} fetchUrl={Request.requestTopRatedMovie}/>
+        <Row title='Popular Movie'rowID={3} fetchUrl={Request.requestPopularMovie}/>
+      <Row title='Upcoming Movie' rowID={4} fetchUrl={Request.requestUpcomingMovie} />
     </>
   )
 }
