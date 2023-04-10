@@ -25,3 +25,6 @@ body{
 #slider::-webkit-scrollbar {
   display: none;
 }
+.overflow-x-scroll::-webkit-scrollbar {
+  display: none;
+}
