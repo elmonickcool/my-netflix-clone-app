@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Main = () => {
     const [movies, setMovies] = useState([]);
+    
 
     useEffect(() => {
         axios.get(Request.requestTrendingMovie).then((response) => {
@@ -11,7 +12,6 @@ const Main = () => {
         });
     }, []);
     const randomMovie = movies.length && movies[Math.floor(Math.random() * movies.length)];
-
 
     const truncateString = (str, num) => {
         return str.length > num ? str.substr(0, num) + "..." : str;
