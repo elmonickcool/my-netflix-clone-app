@@ -8,7 +8,7 @@ const Navbar = () => {
         <Link href='/'>
           <h1 className='text-red-600 text-4xl font-bold cursor-pointer mr-4'>Netflix</h1>
         </Link>
-        <Link href='/home'>
+        <Link href='/'>
           <h1 className='text-white pr-4 ms-5'>Home</h1>
         </Link>
         <Link href='/movie'>
@@ -19,6 +19,12 @@ const Navbar = () => {
         </Link>
         <Link href='/new&popular'>
           <h1 className='text-white pr-4 ms-5'>New & Popular</h1>
+        </Link>
+        <Link href='/genre'>
+          <h1 className='text-white pr-4 ms-5'>Genre</h1>
+        </Link>
+        <Link href='/my_list'>
+          <h1 className='text-white pr-4 ms-5'>My List</h1>
         </Link>
       </div>
       <div>
