@@ -3,33 +3,16 @@ import axios from 'axios';
 
 const Row = ({ title, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const sliderRef = useRef(null);
+  
 
   useEffect(() => {
     axios.get(fetchUrl).then((response) => {
-      // shuffle the array of movies
       const shuffledMovies = response.data.results.sort(() => Math.random() - 0.5);
       setMovies(shuffledMovies);
     });
   }, [fetchUrl]);
 
-  useEffect(() => {
-    if (sliderRef.current) {
-      setContainerWidth(sliderRef.current.offsetWidth);
-    }
-  }, [sliderRef]);
-
-  const handleScrollLeft = () => {
-    sliderRef.current.scrollLeft -= containerWidth;
-    setScrollPosition(sliderRef.current.scrollLeft);
-  };
-
-  const handleScrollRight = () => {
-    sliderRef.current.scrollLeft += containerWidth;
-    setScrollPosition(sliderRef.current.scrollLeft);
-  };
+  
 
   return (
     <>
@@ -37,7 +20,6 @@ const Row = ({ title, fetchUrl }) => {
       <div className='flex flex-col md:flex-row justify-center items-center'>
         <div
           id='slider'
-          ref={sliderRef}
           className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide'
         >
           {movies.map((item, id) => {
@@ -59,20 +41,7 @@ const Row = ({ title, fetchUrl }) => {
             );
           })}
         </div>
-        <div
-          className='absolute top-0 bottom-0 left-0 flex items-center justify-center'
-          onClick={handleScrollLeft}
-          style={{ width: '40px' }}
-        >
-          <i className='fas fa-chevron-left text-2xl text-gray-500 hover:text-white transition-colors duration-300'></i>
-        </div>
-        <div
-          className='absolute top-0 bottom-0 right-0 flex items-center justify-center'
-          onClick={handleScrollRight}
-          style={{ width: '40px' }}
-        >
-          <i className='fas fa-chevron-right text-2xl text-gray-500 hover:text-white transition-colors duration-300'></i>
-        </div>
+       
       </div>
     </>
   );
